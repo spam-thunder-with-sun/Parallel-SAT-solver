@@ -1,3 +1,0 @@
-slurmstepd: error: *** JOB 431213 ON deeplearning03 CANCELLED AT 2023-12-19T14:55:36 DUE TO TIME LIMIT ***
-slurmstepd: error: *** STEP 431213.0 ON deeplearning03 CANCELLED AT 2023-12-19T14:55:36 DUE TO TIME LIMIT ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

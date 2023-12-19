@@ -321,16 +321,16 @@ else
 endif
 
 sat_to_matrix_mult.o:sat_to_matrix_mult.cu 
-	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $< 
 
 read_data.o:read_data.cpp 
-	$(EXEC) $(HOST_COMPILER) -o $@ -c $<
+	$(EXEC) $(HOST_COMPILER) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $< 
 
 constant.o:constant.cpp
-	$(EXEC) $(HOST_COMPILER) -o $@ -c $<
+	$(EXEC) $(HOST_COMPILER) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $< 
 
 sat_to_matrix_mult: sat_to_matrix_mult.o read_data.o constant.o
-	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
+	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES) 
 	$(EXEC) mkdir -p ../../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 	$(EXEC) cp $@ ../../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 
