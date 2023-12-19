@@ -1,0 +1,162 @@
+Literals: 42 Clauses: 133
+SAT: 0
+CPUTime: 0.202 s
+Literals: 100 Clauses: 850
+SAT: 1
+CPUTime: 1.237 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 0.524 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 17.954 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 12.888 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 1.215 s
+Literals: 100 Clauses: 850
+SAT: 1
+CPUTime: 0.506 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 1.535 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 12.143 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 4.246 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 0.056 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 8.757 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 5.808 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 1.192 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 24.156 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 9.459 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 8.135 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 6.031 s
+Literals: 100 Clauses: 900
+SAT: 1
+CPUTime: 0.201 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 3.697 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 4.255 s
+Literals: 100 Clauses: 850
+SAT: 1
+CPUTime: 1.798 s
+Literals: 100 Clauses: 850
+SAT: 1
+CPUTime: 0.653 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 4.525 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 1.738 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 3.839 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 1.264 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 1.252 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 0.097 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 4.923 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 6.042 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 3.570 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 13.555 s
+Literals: 42 Clauses: 133
+SAT: 0
+CPUTime: 0.200 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 4.227 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 2.353 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 4.192 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 0.677 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 1.667 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 6.879 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 3.958 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 4.244 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 0.401 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 1.315 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 2.608 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 3.634 s
+Literals: 155 Clauses: 1135
+SAT: 1
+CPUTime: 1.809 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 53.475 s
+Literals: 100 Clauses: 800
+SAT: 1
+CPUTime: 6.485 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 1.794 s
+Literals: 100 Clauses: 800
+SAT: 0
+CPUTime: 4.615 s
+Literals: 100 Clauses: 900
+SAT: 0
+CPUTime: 16.090 s
+Literals: 100 Clauses: 850
+SAT: 0
+CPUTime: 11.428 s
+Literals: 3 Clauses: 2
+SAT: 1
+CPUTime: 0.000 s

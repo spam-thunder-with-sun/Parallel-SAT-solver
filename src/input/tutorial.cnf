@@ -1,0 +1,16 @@
+c This is a *.cnf file.
+c Lines starting with 'c' are comments.
+c
+c Each .cnf file must contain a 'problem' line.  The syntax is as follows:
+c     p cnf #vars #clauses
+c where #vars is the number of variables, and #clauses is the number of clauses
+c
+c The problem line for this file is:
+
+p cnf 5 5
+1 2 3 4 5 0
+-1 -2 -3 -4 -5 0
+1 -2
+3 -4 5 0
+5 0
+-1 2 0

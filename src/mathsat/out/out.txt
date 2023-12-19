@@ -1,0 +1,1121 @@
+c =============================================================================
+c searching (vars: 42, clauses: 133)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 133 orig clauses, 0 / 0 learnt, 0 / 42 vars)
+c simplified clause db (removed 6 / 133 orig clauses, 0 / 146 learnt, 1 / 42 vars)
+c restarting (after 200 conflicts)
+c restarting (after 500 conflicts)
+c simplified clause db (removed 16 / 127 orig clauses, 433 / 694 learnt, 7 / 41 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 3
+c decisions: 873 (1 random)
+c propagations: 9210 (0 theory)
+c watched clauses visited: 52389 (6598 binary)
+c conflicts: 733
+c
+c CPU Time: 0.003 s
+c Memory used: 9.719 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 24 (0 random)
+c propagations: 337 (0 theory)
+c watched clauses visited: 1465 (121 binary)
+c conflicts: 10
+c
+c CPU Time: 0.001 s
+c Memory used: 9.844 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 87 (0 random)
+c propagations: 1450 (0 theory)
+c watched clauses visited: 5805 (727 binary)
+c conflicts: 54
+c
+c CPU Time: 0.001 s
+c Memory used: 9.910 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 100 (0 random)
+c propagations: 1889 (0 theory)
+c watched clauses visited: 7614 (538 binary)
+c conflicts: 70
+c
+c CPU Time: 0.001 s
+c Memory used: 9.797 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 67 (0 random)
+c propagations: 1140 (0 theory)
+c watched clauses visited: 4614 (370 binary)
+c conflicts: 42
+c
+c CPU Time: 0.001 s
+c Memory used: 9.836 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 4 (0 random)
+c propagations: 77 (0 theory)
+c watched clauses visited: 535 (53 binary)
+c conflicts: 4
+c
+c CPU Time: 0.001 s
+c Memory used: 9.789 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 24 (0 random)
+c propagations: 169 (0 theory)
+c watched clauses visited: 886 (58 binary)
+c conflicts: 4
+c
+c CPU Time: 0.001 s
+c Memory used: 9.836 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 23 (0 random)
+c propagations: 437 (0 theory)
+c watched clauses visited: 2375 (250 binary)
+c conflicts: 18
+c
+c CPU Time: 0.001 s
+c Memory used: 9.824 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 59 (0 random)
+c propagations: 872 (0 theory)
+c watched clauses visited: 4677 (362 binary)
+c conflicts: 35
+c
+c CPU Time: 0.001 s
+c Memory used: 9.781 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 122 (0 random)
+c propagations: 2587 (0 theory)
+c watched clauses visited: 9473 (899 binary)
+c conflicts: 92
+c
+c CPU Time: 0.001 s
+c Memory used: 9.816 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 35 (0 random)
+c propagations: 681 (0 theory)
+c watched clauses visited: 2493 (256 binary)
+c conflicts: 18
+c
+c CPU Time: 0.001 s
+c Memory used: 9.715 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 13 (0 random)
+c propagations: 208 (0 theory)
+c watched clauses visited: 1164 (96 binary)
+c conflicts: 7
+c
+c CPU Time: 0.001 s
+c Memory used: 9.859 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 71 (0 random)
+c propagations: 1047 (0 theory)
+c watched clauses visited: 5260 (457 binary)
+c conflicts: 48
+c
+c CPU Time: 0.001 s
+c Memory used: 9.918 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 36 (0 random)
+c propagations: 508 (0 theory)
+c watched clauses visited: 2822 (293 binary)
+c conflicts: 22
+c
+c CPU Time: 0.001 s
+c Memory used: 9.793 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 66 (0 random)
+c propagations: 1458 (0 theory)
+c watched clauses visited: 6224 (538 binary)
+c conflicts: 55
+c
+c CPU Time: 0.001 s
+c Memory used: 9.852 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 39 (0 random)
+c propagations: 994 (0 theory)
+c watched clauses visited: 4433 (372 binary)
+c conflicts: 38
+c
+c CPU Time: 0.001 s
+c Memory used: 9.938 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 12 (0 random)
+c propagations: 100 (0 theory)
+c watched clauses visited: 561 (29 binary)
+c conflicts: 0
+c
+c CPU Time: 0.001 s
+c Memory used: 9.863 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 79 (0 random)
+c propagations: 1281 (0 theory)
+c watched clauses visited: 5557 (503 binary)
+c conflicts: 46
+c
+c CPU Time: 0.001 s
+c Memory used: 9.855 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 140 (0 random)
+c propagations: 2945 (0 theory)
+c watched clauses visited: 11006 (1287 binary)
+c conflicts: 106
+c
+c CPU Time: 0.001 s
+c Memory used: 9.801 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 19 (0 random)
+c propagations: 290 (0 theory)
+c watched clauses visited: 1504 (134 binary)
+c conflicts: 13
+c
+c CPU Time: 0.001 s
+c Memory used: 9.809 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 28 (0 random)
+c propagations: 634 (0 theory)
+c watched clauses visited: 3216 (287 binary)
+c conflicts: 24
+c
+c CPU Time: 0.001 s
+c Memory used: 9.750 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 22 (0 random)
+c propagations: 266 (0 theory)
+c watched clauses visited: 1258 (101 binary)
+c conflicts: 8
+c
+c CPU Time: 0.001 s
+c Memory used: 9.898 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 38 (0 random)
+c propagations: 287 (0 theory)
+c watched clauses visited: 1163 (88 binary)
+c conflicts: 7
+c
+c CPU Time: 0.001 s
+c Memory used: 9.824 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 50 (0 random)
+c propagations: 1054 (0 theory)
+c watched clauses visited: 4405 (446 binary)
+c conflicts: 38
+c
+c CPU Time: 0.001 s
+c Memory used: 9.898 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 14 (0 random)
+c propagations: 297 (0 theory)
+c watched clauses visited: 1738 (140 binary)
+c conflicts: 11
+c
+c CPU Time: 0.001 s
+c Memory used: 9.758 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 8 (0 random)
+c propagations: 148 (0 theory)
+c watched clauses visited: 1090 (118 binary)
+c conflicts: 6
+c
+c CPU Time: 0.001 s
+c Memory used: 9.914 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 17 (0 random)
+c propagations: 49 (0 theory)
+c watched clauses visited: 488 (29 binary)
+c conflicts: 3
+c
+c CPU Time: 0.001 s
+c Memory used: 9.797 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 25 (0 random)
+c propagations: 286 (0 theory)
+c watched clauses visited: 1922 (164 binary)
+c conflicts: 15
+c
+c CPU Time: 0.001 s
+c Memory used: 9.719 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 56 (0 random)
+c propagations: 545 (0 theory)
+c watched clauses visited: 1742 (111 binary)
+c conflicts: 21
+c
+c CPU Time: 0.001 s
+c Memory used: 9.922 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 29 (0 random)
+c propagations: 120 (0 theory)
+c watched clauses visited: 697 (29 binary)
+c conflicts: 1
+c
+c CPU Time: 0.001 s
+c Memory used: 9.781 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 51 (0 random)
+c propagations: 1046 (0 theory)
+c watched clauses visited: 4677 (499 binary)
+c conflicts: 38
+c
+c CPU Time: 0.001 s
+c Memory used: 9.895 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 72 (0 random)
+c propagations: 1270 (0 theory)
+c watched clauses visited: 6235 (609 binary)
+c conflicts: 54
+c
+c CPU Time: 0.001 s
+c Memory used: 9.801 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 100 (0 random)
+c propagations: 2049 (0 theory)
+c watched clauses visited: 8456 (877 binary)
+c conflicts: 83
+c
+c CPU Time: 0.001 s
+c Memory used: 9.742 MB
+c =============================================================================
+c searching (vars: 42, clauses: 133)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 133 orig clauses, 0 / 0 learnt, 0 / 42 vars)
+c simplified clause db (removed 6 / 133 orig clauses, 0 / 146 learnt, 1 / 42 vars)
+c restarting (after 200 conflicts)
+c restarting (after 500 conflicts)
+c simplified clause db (removed 16 / 127 orig clauses, 433 / 694 learnt, 7 / 41 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 3
+c decisions: 873 (1 random)
+c propagations: 9210 (0 theory)
+c watched clauses visited: 52389 (6598 binary)
+c conflicts: 733
+c
+c CPU Time: 0.003 s
+c Memory used: 9.664 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 26 (0 random)
+c propagations: 335 (0 theory)
+c watched clauses visited: 1682 (176 binary)
+c conflicts: 12
+c
+c CPU Time: 0.001 s
+c Memory used: 9.902 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 19 (0 random)
+c propagations: 338 (0 theory)
+c watched clauses visited: 1615 (163 binary)
+c conflicts: 11
+c
+c CPU Time: 0.001 s
+c Memory used: 9.801 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 42 (0 random)
+c propagations: 787 (0 theory)
+c watched clauses visited: 3485 (434 binary)
+c conflicts: 32
+c
+c CPU Time: 0.001 s
+c Memory used: 9.781 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 116 (0 random)
+c propagations: 1764 (0 theory)
+c watched clauses visited: 6813 (533 binary)
+c conflicts: 70
+c
+c CPU Time: 0.001 s
+c Memory used: 9.926 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 7 (0 random)
+c propagations: 105 (0 theory)
+c watched clauses visited: 746 (84 binary)
+c conflicts: 6
+c
+c CPU Time: 0.001 s
+c Memory used: 9.738 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 21 (0 random)
+c propagations: 423 (0 theory)
+c watched clauses visited: 2248 (170 binary)
+c conflicts: 17
+c
+c CPU Time: 0.001 s
+c Memory used: 9.785 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 49 (0 random)
+c propagations: 911 (0 theory)
+c watched clauses visited: 4188 (493 binary)
+c conflicts: 41
+c
+c CPU Time: 0.001 s
+c Memory used: 9.820 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 93 (0 random)
+c propagations: 1863 (0 theory)
+c watched clauses visited: 7816 (1011 binary)
+c conflicts: 70
+c
+c CPU Time: 0.001 s
+c Memory used: 9.891 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 28 (0 random)
+c propagations: 241 (0 theory)
+c watched clauses visited: 1124 (74 binary)
+c conflicts: 7
+c
+c CPU Time: 0.001 s
+c Memory used: 9.781 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 33 (0 random)
+c propagations: 350 (0 theory)
+c watched clauses visited: 1487 (105 binary)
+c conflicts: 14
+c
+c CPU Time: 0.001 s
+c Memory used: 9.785 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 54 (0 random)
+c propagations: 926 (0 theory)
+c watched clauses visited: 4973 (560 binary)
+c conflicts: 38
+c
+c CPU Time: 0.001 s
+c Memory used: 9.867 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 27 (0 random)
+c propagations: 581 (0 theory)
+c watched clauses visited: 2868 (329 binary)
+c conflicts: 23
+c
+c CPU Time: 0.001 s
+c Memory used: 9.688 MB
+c =============================================================================
+c searching (vars: 155, clauses: 1067)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 455 / 1067 orig clauses, 0 / 0 learnt, 46 / 155 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 131 (0 random)
+c propagations: 1645 (0 theory)
+c watched clauses visited: 2413 (900 binary)
+c conflicts: 56
+c
+c CPU Time: 0.001 s
+c Memory used: 9.809 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c restarting (after 200 conflicts)
+c simplified clause db (removed 26 / 850 orig clauses, 115 / 318 learnt, 1 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 560 (0 random)
+c propagations: 12121 (0 theory)
+c watched clauses visited: 55930 (3728 binary)
+c conflicts: 473
+c
+c CPU Time: 0.003 s
+c Memory used: 11.820 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 85 (0 random)
+c propagations: 1190 (0 theory)
+c watched clauses visited: 4690 (342 binary)
+c conflicts: 44
+c
+c CPU Time: 0.001 s
+c Memory used: 9.844 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 29 (0 random)
+c propagations: 506 (0 theory)
+c watched clauses visited: 2599 (297 binary)
+c conflicts: 21
+c
+c CPU Time: 0.001 s
+c Memory used: 9.844 MB
+c =============================================================================
+c searching (vars: 100, clauses: 800)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 800 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 86 (0 random)
+c propagations: 1786 (0 theory)
+c watched clauses visited: 7799 (805 binary)
+c conflicts: 66
+c
+c CPU Time: 0.001 s
+c Memory used: 9.758 MB
+c =============================================================================
+c searching (vars: 100, clauses: 900)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 900 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 135 (0 random)
+c propagations: 2758 (0 theory)
+c watched clauses visited: 12542 (884 binary)
+c conflicts: 113
+c
+c CPU Time: 0.001 s
+c Memory used: 9.812 MB
+c =============================================================================
+c searching (vars: 100, clauses: 850)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 850 orig clauses, 0 / 0 learnt, 0 / 100 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 74 (0 random)
+c propagations: 1328 (0 theory)
+c watched clauses visited: 6109 (573 binary)
+c conflicts: 52
+c
+c CPU Time: 0.001 s
+c Memory used: 9.828 MB
+c =============================================================================
+c searching (vars: 3, clauses: 2)
+c restarting (after 0 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 2 (0 random)
+c propagations: 3 (0 theory)
+c watched clauses visited: 2 (1 binary)
+c conflicts: 0
+c
+c CPU Time: 0.000 s
+c Memory used: 7.852 MB
+c =============================================================================
+c searching (vars: 590, clauses: 1422)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 1422 orig clauses, 0 / 0 learnt, 0 / 590 vars)
+c restarting (after 200 conflicts)
+c restarting (after 500 conflicts)
+c restarting (after 950 conflicts)
+c restarting (after 1625 conflicts)
+c restarting (after 2638 conflicts)
+c reduced clause db (removed 1495 / 3000 learnt clauses)
+c restarting (after 4157 conflicts)
+c restarting (after 6436 conflicts)
+c reduced clause db (removed 2750 / 5506 learnt clauses)
+c restarting (after 9854 conflicts)
+c reduced clause db (removed 3874 / 7757 learnt clauses)
+c restarting (after 14980 conflicts)
+c reduced clause db (removed 4936 / 9883 learnt clauses)
+c restarting (after 22669 conflicts)
+c reduced clause db (removed 5969 / 11946 learnt clauses)
+c reduced clause db (removed 6985 / 13977 learnt clauses)
+c restarting (after 34203 conflicts)
+c reduced clause db (removed 7988 / 15992 learnt clauses)
+c restarting (after 51503 conflicts)
+c reduced clause db (removed 8992 / 18004 learnt clauses)
+c reduced clause db (removed 9994 / 20012 learnt clauses)
+c reduced clause db (removed 11003 / 22017 learnt clauses)
+c restarting (after 77453 conflicts)
+c reduced clause db (removed 12001 / 24015 learnt clauses)
+c reduced clause db (removed 13000 / 26013 learnt clauses)
+c restarting (after 116377 conflicts)
+c reduced clause db (removed 15774 / 28015 learnt clauses)
+c reduced clause db (removed 15579 / 28240 learnt clauses)
+c reduced clause db (removed 16225 / 29660 learnt clauses)
+c simplified clause db (removed 64 / 1422 orig clauses, 21132 / 25566 learnt, 11 / 590 vars)
+c reduced clause db (removed 5145 / 10303 learnt clauses)
+c simplified clause db (removed 64 / 1358 orig clauses, 7747 / 10756 learnt, 11 / 579 vars)
+c restarting (after 174763 conflicts)
+c simplified clause db (removed 64 / 1294 orig clauses, 3074 / 5809 learnt, 11 / 568 vars)
+c =============================================================================
+s UNSATISFIABLE
+c Statistics:
+c restarts: 16
+c decisions: 208920 (152 random)
+c propagations: 7841103 (0 theory)
+c watched clauses visited: 134779783 (7296831 binary)
+c conflicts: 177741
+c
+c CPU Time: 7.072 s
+c Memory used: 27.863 MB
+c =============================================================================
+c searching (vars: 410, clauses: 24758)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 24758 orig clauses, 0 / 0 learnt, 0 / 410 vars)
+c restarting (after 200 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 1759 (1 random)
+c propagations: 25709 (0 theory)
+c watched clauses visited: 70482 (16302 binary)
+c conflicts: 431
+c
+c CPU Time: 0.012 s
+c Memory used: 11.895 MB
+c =============================================================================
+c searching (vars: 649, clauses: 1562)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 1562 orig clauses, 0 / 0 learnt, 0 / 649 vars)
+c restarting (after 200 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 655 (0 random)
+c propagations: 11157 (0 theory)
+c watched clauses visited: 20413 (9105 binary)
+c conflicts: 200
+c
+c CPU Time: 0.002 s
+c Memory used: 9.941 MB
+c =============================================================================
+c searching (vars: 758, clauses: 47820)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 47820 orig clauses, 0 / 0 learnt, 0 / 758 vars)
+c restarting (after 200 conflicts)
+c restarting (after 500 conflicts)
+c restarting (after 950 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 4
+c decisions: 8648 (6 random)
+c propagations: 90054 (0 theory)
+c watched clauses visited: 245796 (49286 binary)
+c conflicts: 1509
+c
+c CPU Time: 0.030 s
+c Memory used: 13.832 MB
+c =============================================================================
+c searching (vars: 708, clauses: 1702)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 1702 orig clauses, 0 / 0 learnt, 0 / 708 vars)
+c restarting (after 200 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 711 (1 random)
+c propagations: 11245 (0 theory)
+c watched clauses visited: 20503 (9139 binary)
+c conflicts: 200
+c
+c CPU Time: 0.003 s
+c Memory used: 9.848 MB
+c =============================================================================
+c searching (vars: 19500, clauses: 95684)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 10189 / 95684 orig clauses, 0 / 0 learnt, 3951 / 19500 vars)
+c restarting (after 200 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 8105 (3 random)
+c propagations: 167670 (0 theory)
+c watched clauses visited: 294226 (132476 binary)
+c conflicts: 219
+c
+c CPU Time: 0.049 s
+c Memory used: 27.781 MB
+c =============================================================================
+c searching (vars: 125, clauses: 310)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 310 orig clauses, 0 / 0 learnt, 0 / 125 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 69 (0 random)
+c propagations: 252 (0 theory)
+c watched clauses visited: 294 (151 binary)
+c conflicts: 5
+c
+c CPU Time: 0.000 s
+c Memory used: 9.879 MB
+c =============================================================================
+c searching (vars: 19500, clauses: 96931)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 8748 / 96931 orig clauses, 0 / 0 learnt, 3489 / 19500 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 7160 (4 random)
+c propagations: 38261 (0 theory)
+c watched clauses visited: 69535 (24278 binary)
+c conflicts: 28
+c
+c CPU Time: 0.043 s
+c Memory used: 27.941 MB
+c =============================================================================
+c searching (vars: 252, clauses: 766)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 766 orig clauses, 0 / 0 learnt, 0 / 252 vars)
+c restarting (after 200 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 393 (0 random)
+c propagations: 9385 (0 theory)
+c watched clauses visited: 18541 (8371 binary)
+c conflicts: 202
+c
+c CPU Time: 0.002 s
+c Memory used: 9.902 MB
+c =============================================================================
+c searching (vars: 20700, clauses: 100899)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 12500 / 100899 orig clauses, 0 / 0 learnt, 4681 / 20700 vars)
+c restarting (after 200 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 8951 (7 random)
+c propagations: 218308 (0 theory)
+c watched clauses visited: 384216 (166179 binary)
+c conflicts: 322
+c
+c CPU Time: 0.054 s
+c Memory used: 27.891 MB
+c =============================================================================
+c searching (vars: 8432, clauses: 31310)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 31310 orig clauses, 0 / 0 learnt, 0 / 8432 vars)
+c restarting (after 200 conflicts)
+c restarting (after 500 conflicts)
+c restarting (after 950 conflicts)
+c restarting (after 1625 conflicts)
+c restarting (after 2638 conflicts)
+c restarting (after 4157 conflicts)
+c restarting (after 6436 conflicts)
+c restarting (after 9854 conflicts)
+c restarting (after 14980 conflicts)
+c restarting (after 22669 conflicts)
+c reduced clause db (removed 19329 / 31312 learnt clauses)
+c restarting (after 34203 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 12
+c decisions: 70882 (54 random)
+c propagations: 7059034 (0 theory)
+c watched clauses visited: 27829497 (8015643 binary)
+c conflicts: 41549
+c
+c CPU Time: 2.306 s
+c Memory used: 54.387 MB
+c =============================================================================
+c searching (vars: 21000, clauses: 101581)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 13612 / 101581 orig clauses, 0 / 0 learnt, 5095 / 21000 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 7158 (5 random)
+c propagations: 56574 (0 theory)
+c watched clauses visited: 102467 (41198 binary)
+c conflicts: 67
+c
+c CPU Time: 0.047 s
+c Memory used: 27.898 MB
+c =============================================================================
+c searching (vars: 8704, clauses: 32316)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 32316 orig clauses, 0 / 0 learnt, 0 / 8704 vars)
+c restarting (after 200 conflicts)
+c restarting (after 500 conflicts)
+c restarting (after 950 conflicts)
+c restarting (after 1625 conflicts)
+c restarting (after 2638 conflicts)
+c restarting (after 4157 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 7
+c decisions: 19109 (11 random)
+c propagations: 764934 (0 theory)
+c watched clauses visited: 1850829 (824923 binary)
+c conflicts: 4657
+c
+c CPU Time: 0.146 s
+c Memory used: 23.773 MB
+c =============================================================================
+c searching (vars: 21800, clauses: 104856)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 15114 / 104856 orig clauses, 0 / 0 learnt, 5535 / 21800 vars)
+c restarting (after 200 conflicts)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 2
+c decisions: 8411 (5 random)
+c propagations: 165535 (0 theory)
+c watched clauses visited: 269232 (126846 binary)
+c conflicts: 201
+c
+c CPU Time: 0.052 s
+c Memory used: 27.816 MB
+c =============================================================================
+c searching (vars: 283, clauses: 9690)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 0 / 9690 orig clauses, 0 / 0 learnt, 0 / 283 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 438 (0 random)
+c propagations: 3399 (0 theory)
+c watched clauses visited: 8221 (1767 binary)
+c conflicts: 73
+c
+c CPU Time: 0.004 s
+c Memory used: 11.906 MB
+c =============================================================================
+c searching (vars: 22500, clauses: 105924)
+c restarting (after 0 conflicts)
+c simplified clause db (removed 18878 / 105924 orig clauses, 0 / 0 learnt, 6685 / 22500 vars)
+c =============================================================================
+s SATISFIABLE
+c Statistics:
+c restarts: 1
+c decisions: 7603 (5 random)
+c propagations: 35895 (0 theory)
+c watched clauses visited: 66130 (21849 binary)
+c conflicts: 25
+c
+c CPU Time: 0.049 s
+c Memory used: 27.703 MB

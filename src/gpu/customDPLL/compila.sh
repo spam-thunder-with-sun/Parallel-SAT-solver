@@ -1,0 +1,1 @@
+g++ main.cpp dpll.cpp read_data.cpp constant.cpp -o customDPLL -pthread -std=c++11
