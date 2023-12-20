@@ -16,7 +16,6 @@ using namespace std;
 
 #define M 6
 #define N 5
-#define IDX2C(i,j,ld) (((j)*(ld))+(i))
 
 static __inline__ void modify (cublasHandle_t handle, float *m, int ldm, int n, int p, int q, float alpha, float beta){
     cublasSscal (handle, n-q, &alpha, &m[IDX2C(p,q,ldm)], ldm);
@@ -87,11 +86,14 @@ int main(int argc, char *argv[])
         filename = argv[1];
 
     INT_TYPE literals, clauses;
-    vector<vector<INT_TYPE>> matrix;
-    std::tie(literals, clauses, matrix) = readDimacsFile2Vec(filename);
+    DATA_TYPE* matrix;
+    std::tie(literals, clauses, matrix) = readDimacsFile2Column(filename);
     print_matrix(literals, clauses, matrix);
 
-    cublas_test();
+    if(cublas_test())
+        cout << "Cublas test failed" << endl;
+    else
+        cout << "Cublas test passed" << endl;
 
     return 0;
 }
