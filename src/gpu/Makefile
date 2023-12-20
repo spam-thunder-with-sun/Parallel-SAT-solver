@@ -301,6 +301,7 @@ endif
 endif
 
 ALL_CCFLAGS += --threads 0 --std=c++11
+GPPFLAGS := -std=c++11 -O3 -Wall -pthread
 
 ifeq ($(SAMPLE_ENABLED),0)
 EXEC ?= @echo "[@]"
@@ -324,10 +325,10 @@ sat_to_matrix_mult.o:sat_to_matrix_mult.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $< 
 
 read_data.o:read_data.cpp 
-	$(EXEC) $(HOST_COMPILER) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $< 
+	$(EXEC) $(HOST_COMPILER) $(GPPFLAGS) -o $@ -c $< 
 
 constant.o:constant.cpp
-	$(EXEC) $(HOST_COMPILER) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $< 
+	$(EXEC) $(HOST_COMPILER) $(GPPFLAGS) -o $@ -c $< 
 
 sat_to_matrix_mult: sat_to_matrix_mult.o read_data.o constant.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES) 
