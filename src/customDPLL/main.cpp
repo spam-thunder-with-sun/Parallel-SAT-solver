@@ -30,13 +30,13 @@ int main(int argc, char *argv[])
     if(argc > 1)
         filename = argv[1];
 
+    /*
     INT_TYPE literals, clauses;
     vector<unordered_set<INT_TYPE>> matrix;
     std::tie(literals, clauses, matrix) = readDimacsFile2Hashset(filename);
     print_matrix(literals, clauses, matrix);
 
     bool ris = false;
-
     const clock_t c_start = clock();
     auto t_start = chrono::high_resolution_clock::now();
     thread t1(wrap_DPLL, &matrix, &ris);
@@ -47,6 +47,13 @@ int main(int argc, char *argv[])
     cout << "Literals: " << literals << " Clauses: " << clauses << endl;
     cout << "SAT: " << ris << endl;
     cout << fixed << setprecision(3) << "CPUTime: " << (double)(c_end - c_start) / CLOCKS_PER_SEC << " s" << endl;
+    */
+
+    INT_TYPE literals, clauses;
+    DATA_TYPE* matrix;
+
+    std::tie(literals, clauses, matrix) = readDimacsFile2Column(filename);
+    print_matrix(literals, clauses, matrix);
 
     return 0;
 }
