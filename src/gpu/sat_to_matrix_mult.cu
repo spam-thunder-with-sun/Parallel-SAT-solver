@@ -78,6 +78,57 @@ int cublas_test()
     return EXIT_SUCCESS;
 }
 
+int cublas_allocation(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* matrix)
+{
+    cudaError_t cudaStat;
+    cublasStatus_t stat;
+    cublasHandle_t handle;
+    DATA_TYPE* devPtr;
+
+    if (!matrix) {
+        cerr << "Host memory allocation failed" << endl;
+        return EXIT_FAILURE;
+    }
+
+    cudaStat = cudaMalloc ((void**)&devPtr, literals*clauses*sizeof(*matrix)<<1);
+    if (cudaStat != cudaSuccess) {
+        cerr << "Device memory allocation failed: " << cudaStat << endl;
+        return EXIT_FAILURE;
+    }
+
+    stat = cublasCreate(&handle);
+    if (stat != CUBLAS_STATUS_SUCCESS) {
+        cerr << "CUBLAS initialization failed: " << stat << endl;
+        return EXIT_FAILURE;
+    }
+
+    stat = cublasSetMatrix (literals<<1, clauses, sizeof(*matrix), matrix, literals<<1, devPtr, literals<<1);
+    if (stat != CUBLAS_STATUS_SUCCESS) {
+        cerr << "Data download failed: " << stat << endl;
+        cudaFree (devPtr);
+        cublasDestroy(handle);
+        return EXIT_FAILURE;
+    }
+
+    /*
+    modify (handle, devPtr, literals<<1, N, 1, 2, 16.0f, 12.0f);
+    
+    */
+
+    stat = cublasGetMatrix (literals<<1, clauses, sizeof(*matrix), devPtr, literals<<1, matrix, literals<<1);
+    if (stat != CUBLAS_STATUS_SUCCESS) {
+        cerr << "Data upload failed: " << stat << endl;
+        cudaFree (devPtr);
+        cublasDestroy(handle);
+        return EXIT_FAILURE;
+    }
+
+    cudaFree(devPtr);
+    cublasDestroy(handle);
+
+    return EXIT_SUCCESS;
+}
+
 int main(int argc, char *argv[]) 
 {
     string filename = "../input/dimacs/small.cnf";
@@ -90,10 +141,16 @@ int main(int argc, char *argv[])
     std::tie(literals, clauses, matrix) = readDimacsFile2Column(filename);
     print_matrix(literals, clauses, matrix);
 
-    if(cublas_test())
+    if(cublas_allocation(literals, clauses, matrix))
         cout << "Cublas test failed" << endl;
     else
         cout << "Cublas test passed" << endl;
+
+    cout << endl;
+    cout << "After cublas" << endl;
+    print_matrix(literals, clauses, matrix);
+
+    free(matrix);
 
     return 0;
 }
