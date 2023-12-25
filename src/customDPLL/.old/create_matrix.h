@@ -79,7 +79,7 @@ class CreateMatrix
             if(print)
             {
                 cout << endl;
-                print_matrix();
+                printInputMatrix();
                 cout << endl;
             }
 
@@ -106,7 +106,7 @@ class CreateMatrix
             return error_;
         }
 
-        void print_matrix()
+        void printInputMatrix()
         {
             cout << "Literals: " << literals_ << endl;
             cout << "Clauses: " << clauses_ << endl;

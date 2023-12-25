@@ -1,0 +1,4 @@
+nvlink fatal   : Could not open input file 'sat_to_matrix_mult.o' (target: sm_50)
+make: *** [Makefile:337: sat_to_matrix_mult] Error 1
+slurmstepd: error: execve(): sat_to_matrix_mult: No such file or directory
+srun: error: deeplearning03: task 0: Exited with exit code 2

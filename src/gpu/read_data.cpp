@@ -15,7 +15,6 @@ tuple<INT_TYPE, INT_TYPE> readDimacsFile_generic(string filename, void* matrix, 
     string line;
     istringstream line_buf;                
     char first_char;
-    INT_TYPE row = 0;
     INT_TYPE tmp;
 
     //Dati del problema
@@ -152,9 +151,9 @@ tuple<INT_TYPE, INT_TYPE, DATA_TYPE *> readDimacsFile2Column(string filename)
 
     auto addLiteral = [](INT_TYPE clause, INT_TYPE literal, INT_TYPE nClauses, INT_TYPE nLiterals, void* pointer_matrix)->void{
         if(literal > 0)
-            (*((DATA_TYPE**) pointer_matrix))[IDX2C(literal-1, clause, nLiterals<<1)] = 1;
+            (*((DATA_TYPE**) pointer_matrix))[IDX2C(literal-1, clause, nLiterals<<1)] = (DATA_TYPE)1;
         else if(literal < 0)
-            (*((DATA_TYPE**) pointer_matrix))[IDX2C(nLiterals - literal - 1, clause, nLiterals<<1)] = 1;
+            (*((DATA_TYPE**) pointer_matrix))[IDX2C(nLiterals - literal - 1, clause, nLiterals<<1)] = (DATA_TYPE)1;
     };
 
     INT_TYPE literals, clauses;
@@ -165,53 +164,4 @@ tuple<INT_TYPE, INT_TYPE, DATA_TYPE *> readDimacsFile2Column(string filename)
         exit(EXIT_FAILURE);
     }
     return make_tuple(literals, clauses, matrix);
-}
-
-void print_matrix(INT_TYPE literals, INT_TYPE clauses, vector<vector<INT_TYPE>> matrix)
-{
-    cout << "Literals: " << literals << endl;
-    cout << "Clauses: " << clauses << endl;
-    cout << "Matrix:" << endl;
-    for(INT_TYPE i = 0; i < matrix.size(); ++i)
-    {
-        vector<INT_TYPE> row = matrix[i];
-        for (INT_TYPE j = 0; j < row.size(); ++j)
-            cout << matrix[i][j] << " ";
-        cout << endl;
-    }
-}
-
-void print_matrix(INT_TYPE literals, INT_TYPE clauses, vector<unordered_set<INT_TYPE>> matrix)
-{
-    cout << "Literals: " << literals << endl;
-    cout << "Clauses: " << clauses << endl;
-    cout << "Matrix:" << endl;
-    for(INT_TYPE i = 0; i < matrix.size(); ++i)
-    {
-        unordered_set<INT_TYPE> row = matrix[i];
-        for(auto it = row.begin(); it != row.end(); ++it)
-            cout << *it << " ";
-        cout << endl;
-    }
-}
-
-void print_matrix(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* matrix)
-{
-    cout << "Literals: " << literals << endl;
-    cout << "Clauses: " << clauses << endl;
-    cout << "Matrix: " << endl;
-
-    for(INT_TYPE i = 0; i < clauses; ++i)
-    {
-        for(INT_TYPE j = 0; j < literals<<1; ++j)
-        {
-            if(j == literals)
-                cout << "| ";
-            
-            cout << (int)matrix[IDX2C(j, i, literals<<1)] << " ";
-        }
-            
-        cout << endl;
-    }
-
 }

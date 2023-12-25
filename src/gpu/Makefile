@@ -327,10 +327,13 @@ sat_to_matrix_mult.o:sat_to_matrix_mult.cu
 read_data.o:read_data.cpp 
 	$(EXEC) $(HOST_COMPILER) $(GPPFLAGS) -o $@ -c $< 
 
+print_data.o:print_data.cpp 
+	$(EXEC) $(HOST_COMPILER) $(GPPFLAGS) -o $@ -c $< 
+
 constant.o:constant.cpp
 	$(EXEC) $(HOST_COMPILER) $(GPPFLAGS) -o $@ -c $< 
 
-sat_to_matrix_mult: sat_to_matrix_mult.o read_data.o constant.o
+sat_to_matrix_mult: sat_to_matrix_mult.o read_data.o print_data.o constant.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES) 
 	$(EXEC) mkdir -p ../../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 	$(EXEC) cp $@ ../../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
@@ -342,6 +345,7 @@ testrun: build
 
 clean:
 	rm -f sat_to_matrix_mult sat_to_matrix_mult.o
+	rm -f read_data.o print_data.o constant.o
 	rm -rf ../../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)/sat_to_matrix_mult
 
 preclean:

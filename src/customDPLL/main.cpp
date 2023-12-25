@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     INT_TYPE literals, clauses;
     vector<unordered_set<INT_TYPE>> matrix;
     std::tie(literals, clauses, matrix) = readDimacsFile2Hashset(filename);
-    print_matrix(literals, clauses, matrix);
+    printInputMatrix(literals, clauses, matrix);
 
     bool ris = false;
     const clock_t c_start = clock();
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     DATA_TYPE* matrix;
 
     std::tie(literals, clauses, matrix) = readDimacsFile2Column(filename);
-    print_matrix(literals, clauses, matrix);
+    printInputMatrix(literals, clauses, matrix);
 
     return 0;
 }

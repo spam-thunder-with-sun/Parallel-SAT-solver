@@ -167,7 +167,7 @@ tuple<INT_TYPE, INT_TYPE, DATA_TYPE *> readDimacsFile2Column(string filename)
     return make_tuple(literals, clauses, matrix);
 }
 
-void print_matrix(INT_TYPE literals, INT_TYPE clauses, vector<vector<INT_TYPE>> matrix)
+void printInputMatrix(INT_TYPE literals, INT_TYPE clauses, vector<vector<INT_TYPE>> matrix)
 {
     cout << "Literals: " << literals << endl;
     cout << "Clauses: " << clauses << endl;
@@ -181,7 +181,7 @@ void print_matrix(INT_TYPE literals, INT_TYPE clauses, vector<vector<INT_TYPE>> 
     }
 }
 
-void print_matrix(INT_TYPE literals, INT_TYPE clauses, vector<unordered_set<INT_TYPE>> matrix)
+void printInputMatrix(INT_TYPE literals, INT_TYPE clauses, vector<unordered_set<INT_TYPE>> matrix)
 {
     cout << "Literals: " << literals << endl;
     cout << "Clauses: " << clauses << endl;
@@ -195,7 +195,7 @@ void print_matrix(INT_TYPE literals, INT_TYPE clauses, vector<unordered_set<INT_
     }
 }
 
-void print_matrix(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* matrix)
+void printInputMatrix(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* matrix)
 {
     cout << "Literals: " << literals << endl;
     cout << "Clauses: " << clauses << endl;
