@@ -10,8 +10,11 @@
 
     void printInputMatrix(INT_TYPE, INT_TYPE, std::vector<std::vector<INT_TYPE>>);
     void printInputMatrix(INT_TYPE, INT_TYPE, std::vector<std::unordered_set<INT_TYPE>>);
-    void printInputMatrix(INT_TYPE, INT_TYPE, DATA_TYPE *);
+    void printInputMatrix(INT_TYPE, INT_TYPE, DATA_TYPE*);
 
     void printSolutionMatrix(INT_TYPE, DATA_TYPE*);
+
+    void printResultMatrix(INT_TYPE, INT_TYPE, RESULT_TYPE*);
+
 #endif
 

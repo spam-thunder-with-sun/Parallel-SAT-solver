@@ -68,3 +68,16 @@ void printSolutionMatrix(INT_TYPE literals, DATA_TYPE* solution_matrix)
         cout << endl;
     }
 }
+
+void printResultMatrix(INT_TYPE literals, INT_TYPE clauses, RESULT_TYPE* result_matrix)
+{
+    cout << "Result matrix:" << endl;
+    for(INT_TYPE i = 0; i < 1<<literals; i++)
+    {
+        for(INT_TYPE j = 0; j < clauses; j++)
+        {
+            cout << (int)result_matrix[IDX2C(i, j, 1<<literals)] << " ";
+        }
+        cout << endl;
+    }
+}
