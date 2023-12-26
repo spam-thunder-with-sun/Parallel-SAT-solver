@@ -2,9 +2,13 @@
     #define CONSTANT
 
     #define INT_TYPE int32_t
-    #define DATA_TYPE int8_t
-    #define RESULT_TYPE int32_t
-    #define PRINT_DATA int
+    #define DATA_TYPE float
+    #define RESULT_TYPE float
+    #define PRINT_DATA float
+
+    #define CUDA_DATA_TYPE CUDA_R_32F
+    #define CUDA_RESULT_TYPE CUDA_R_32F
+    #define CUDA_ALGO CUBLAS_COMPUTE_32F 
     
     #define IDX2C(i,j,ld) (((j)*(ld))+(i))
 

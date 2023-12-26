@@ -96,12 +96,21 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
         return EXIT_FAILURE;
     }
 
+    stat=cublasSetMatrix (1<<literals, clauses, sizeof(*result_matrix), result_matrix, 1<<literals, devPtr_result, 1<<literals);
+    if (stat != CUBLAS_STATUS_SUCCESS) {
+        cerr << "Data download failed (result): " << stat << endl;
+        cudaFree (devPtr_result);
+        cublasDestroy(handle);
+        return EXIT_FAILURE;
+    }
+
     //Definizione dei parametri per la moltiplicazione
     RESULT_TYPE alpha = 1;
     RESULT_TYPE beta = 0;
 
     //Moltiplicazione
-    stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, 1<<literals, clauses, literals<<1, &alpha, devPtr_problem, CUDA_R_8I, 1<<literals, devPtr_solution, CUDA_R_8I, literals<<1, &beta, result_matrix, CUDA_R_32I, 1<<literals, CUBLAS_COMPUTE_32I, CUBLAS_GEMM_DEFAULT);
+    /*
+    stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, 1<<literals, clauses, literals<<1, &alpha, devPtr_problem, CUDA_DATA_TYPE, 1<<literals, devPtr_solution, CUDA_DATA_TYPE, literals<<1, &beta, result_matrix, CUDA_RESULT_TYPE, 1<<literals, CUDA_ALGO, CUBLAS_GEMM_DEFAULT);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Kernel execution failed: " << stat << endl;
 
@@ -124,11 +133,18 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
         cublasDestroy(handle);
         return EXIT_FAILURE;
     }
+    */
 
     //Copia dei risultati sul device
     stat = cublasGetMatrix (1<<literals, clauses, sizeof(*result_matrix), devPtr_result, 1<<literals, result_matrix, 1<<literals);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Data upload failed (problem): " << stat << endl;
+        //Stampo il tipo di errore
+        if(stat == CUBLAS_STATUS_MAPPING_ERROR)
+            cerr << "CUBLAS_STATUS_MAPPING_ERROR" << endl;
+        else if(stat == CUBLAS_STATUS_INVALID_VALUE)
+            cerr << "CUBLAS_STATUS_INVALID_VALUE" << endl;
+
         cudaFree (devPtr_problem);
         cudaFree (devPtr_solution);
         cudaFree (devPtr_result);
@@ -160,7 +176,7 @@ int main(int argc, char *argv[])
     //Alloco la matrice di soluzione
     solution_matrix = createSolutionMatrix(literals);
     //Alloco la matrice di risultato
-    result_matrix = (RESULT_TYPE*)calloc(1<<literals*clauses, sizeof(*result_matrix));
+    result_matrix = (RESULT_TYPE*)calloc((1<<literals)*clauses, sizeof(*result_matrix));
 
     //Stampo la matrice in input
     printInputMatrix(literals, clauses, problem_matrix);

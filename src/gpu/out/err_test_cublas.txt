@@ -1,2 +1,0 @@
-Kernel execution failed: 15
-CUBLAS_STATUS_NOT_SUPPORTED
