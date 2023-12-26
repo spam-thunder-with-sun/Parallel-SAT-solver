@@ -104,8 +104,23 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
     stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, 1<<literals, clauses, literals<<1, &alpha, devPtr_problem, CUDA_R_8I, 1<<literals, devPtr_solution, CUDA_R_8I, literals<<1, &beta, result_matrix, CUDA_R_32I, 1<<literals, CUBLAS_COMPUTE_32I, CUBLAS_GEMM_DEFAULT);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Kernel execution failed: " << stat << endl;
+
+        //Stampo il tipo di errore
+        if(stat == CUBLAS_STATUS_NOT_INITIALIZED)
+            cerr << "CUBLAS_STATUS_NOT_INITIALIZED" << endl;
+        else if(stat == CUBLAS_STATUS_INVALID_VALUE)
+            cerr << "CUBLAS_STATUS_INVALID_VALUE" << endl;
+        else if(stat == CUBLAS_STATUS_ARCH_MISMATCH)
+            cerr << "CUBLAS_STATUS_ARCH_MISMATCH" << endl;
+        else if(stat == CUBLAS_STATUS_EXECUTION_FAILED)
+            cerr << "CUBLAS_STATUS_EXECUTION_FAILED" << endl;
+        else if(stat == CUBLAS_STATUS_NOT_SUPPORTED)
+            cerr << "CUBLAS_STATUS_NOT_SUPPORTED" << endl;
+        else cerr << "Unknown error" << endl;
+        
         cudaFree (devPtr_problem);
         cudaFree (devPtr_solution);
+        cudaFree (devPtr_result);
         cublasDestroy(handle);
         return EXIT_FAILURE;
     }
@@ -115,6 +130,8 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Data upload failed (problem): " << stat << endl;
         cudaFree (devPtr_problem);
+        cudaFree (devPtr_solution);
+        cudaFree (devPtr_result);
         cublasDestroy(handle);
         return EXIT_FAILURE;
     }

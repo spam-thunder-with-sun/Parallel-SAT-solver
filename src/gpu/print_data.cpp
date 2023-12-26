@@ -40,7 +40,7 @@ void printInputMatrix(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* matrix)
     {
         for(INT_TYPE j = 0; j < clauses; ++j)
         {           
-            cout << (int)matrix[IDX2C(i, j, literals<<1)] << " ";
+            cout << (PRINT_DATA)matrix[IDX2C(i, j, literals<<1)] << " ";
         }
         
         cout << endl;
@@ -60,7 +60,7 @@ void printSolutionMatrix(INT_TYPE literals, DATA_TYPE* solution_matrix)
     {
         for(INT_TYPE j = 0; j < literals<<1; j++)
         {
-            cout << (int)solution_matrix[IDX2C(i, j, 1<<literals)] << " ";
+            cout << (PRINT_DATA)solution_matrix[IDX2C(i, j, 1<<literals)] << " ";
 
             if(j == literals-1)
                 cout << "| ";
@@ -76,7 +76,7 @@ void printResultMatrix(INT_TYPE literals, INT_TYPE clauses, RESULT_TYPE* result_
     {
         for(INT_TYPE j = 0; j < clauses; j++)
         {
-            cout << (int)result_matrix[IDX2C(i, j, 1<<literals)] << " ";
+            cout << (PRINT_DATA)result_matrix[IDX2C(i, j, 1<<literals)] << " ";
         }
         cout << endl;
     }
