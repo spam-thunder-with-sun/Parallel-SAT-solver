@@ -16,6 +16,8 @@ using namespace std;
 #include "print_data.h"
 #include "constant.h"
 
+#define DEBUG false
+
 DATA_TYPE* createSolutionMatrix(INT_TYPE literals)
 {
     //Alloco la matrice di soluzione
@@ -36,6 +38,29 @@ DATA_TYPE* createSolutionMatrix(INT_TYPE literals)
     }
 
     return solution_matrix;
+}
+
+bool checkLineResult(INT_TYPE literals, INT_TYPE clauses, RESULT_TYPE* result_matrix, INT_TYPE line)
+{
+    for(INT_TYPE i = 0; i < clauses; i++)
+    {
+        if(result_matrix[IDX2C(line, i, 1<<literals)] == 0)
+            return false;
+    }
+
+    return true;
+}
+
+bool checkResult(INT_TYPE literals, INT_TYPE clauses, RESULT_TYPE* result_matrix)
+{
+    //Controllo se la matrice di risultato è corretta
+    for(INT_TYPE i = 0; i < 1<<literals; i++)
+    {
+        if(checkLineResult(literals, clauses, result_matrix, i))
+            return true;
+    }
+
+    return false;
 }
 
 int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA_TYPE* problem_matrix, RESULT_TYPE* result_matrix)
@@ -120,6 +145,7 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
         return EXIT_FAILURE;
     }
     */
+
     //--------------------------------------
     //Moltiplicazione con GemmEx
     //--------------------------------------
@@ -195,7 +221,7 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
 int main(int argc, char *argv[]) 
 {
     cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl << endl;
-    std::cout << std::fixed << std::setprecision(1);
+    std::cout << std::fixed << std::setprecision(0);
 
     string filename = "../input/dimacs/jnh1.cnf";
     //string filename = "../input/dimacs/small.cnf";
@@ -212,19 +238,24 @@ int main(int argc, char *argv[])
     //Alloco la matrice di risultato
     result_matrix = (RESULT_TYPE*)calloc((1<<literals)*clauses, sizeof(*result_matrix));
 
-    //Stampo la matrice in input
-    printInputMatrix(literals, clauses, problem_matrix);
-    //Stampo la matrice di soluzione
-    printSolutionMatrix(literals, solution_matrix);
+    #if DEBUG
+        //Stampo la matrice in input
+        printInputMatrix(literals, clauses, problem_matrix);
+        //Stampo la matrice di soluzione
+        printSolutionMatrix(literals, solution_matrix);
+    #endif
 
     cout << endl << endl;
     if(cublas(literals, clauses, solution_matrix, problem_matrix, result_matrix))
-        cout << "Test failed" << endl;
-    else
-        cout << "Test passed" << endl;
+        if(checkResult(literals, clauses, result_matrix))
+            cout << "SAT" << endl;
+        else
+            cout << "UNSAT" << endl;
 
-    //Stampo la matrice di risultato
-    printResultMatrix(literals, clauses, result_matrix);
+    #if DEBUG
+        //Stampo la matrice di risultato
+        printResultMatrix(literals, clauses, result_matrix);
+    #endif
     
     free(problem_matrix);
     free(solution_matrix);
