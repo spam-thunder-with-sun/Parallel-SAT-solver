@@ -220,9 +220,9 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
 
 int main(int argc, char *argv[]) 
 {
-    cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl;
+    //cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl;
     std::cout << std::fixed << std::setprecision(0);
-
+    cout << endl;
     string filename = "../input/dimacs/jnh1.cnf";
     cout << "File: " << filename << endl;
     //string filename = "../input/dimacs/small.cnf";
@@ -246,12 +246,15 @@ int main(int argc, char *argv[])
         printSolutionMatrix(literals, solution_matrix);
     #endif
 
-    cout << endl << endl;
     if(cublas(literals, clauses, solution_matrix, problem_matrix, result_matrix))
+    {
         if(checkResult(literals, clauses, result_matrix))
             cout << "SAT" << endl;
         else
             cout << "UNSAT" << endl;
+    }
+    else
+        cout << "ERROR" << endl;
 
     #if DEBUG
         //Stampo la matrice di risultato
@@ -262,7 +265,7 @@ int main(int argc, char *argv[])
     free(solution_matrix);
     free(result_matrix);
 
-    cout << endl << "-------------------------------------------------------------------" << endl << "END" << endl;
+    //cout << endl << "-------------------------------------------------------------------" << endl << "END" << endl;
 
     return 0;
 }

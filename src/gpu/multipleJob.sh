@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:0
 #SBATCH --cpus-per-task=1
 #SBATCH --time=00:05:00
-#SBATCH --job-name=GPU_SAT
+#SBATCH --job-name=GPU_SAT_MULTIPLE
 #SBATCH --output=out/out_multiple.txt
 #SBATCH --error=out/err_multiple.txt
 
