@@ -224,6 +224,7 @@ int main(int argc, char *argv[])
     std::cout << std::fixed << std::setprecision(0);
 
     string filename = "../input/dimacs/jnh1.cnf";
+    cout << "File: " << filename << endl;
     //string filename = "../input/dimacs/small.cnf";
     if(argc > 1)
         filename = argv[1];
