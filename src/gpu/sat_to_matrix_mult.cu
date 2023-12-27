@@ -220,7 +220,7 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
 
 int main(int argc, char *argv[]) 
 {
-    cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl << endl;
+    cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl;
     std::cout << std::fixed << std::setprecision(0);
 
     string filename = "../input/dimacs/jnh1.cnf";
