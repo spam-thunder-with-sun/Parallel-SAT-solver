@@ -6,6 +6,7 @@ using namespace std;
 #include <string>
 #include <cmath>
 #include <bitset>
+#include <iomanip>
 #include <stdio.h>
 //Librerie per il calcolo parallelo
 #include <cuda_runtime.h>
@@ -14,6 +15,8 @@ using namespace std;
 #include "read_data.h"
 #include "print_data.h"
 #include "constant.h"
+
+#define DEBUG false
 
 DATA_TYPE* createSolutionMatrix(INT_TYPE literals)
 {
@@ -37,57 +40,83 @@ DATA_TYPE* createSolutionMatrix(INT_TYPE literals)
     return solution_matrix;
 }
 
-int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_TYPE* solution_matrix, RESULT_TYPE* result_matrix)
+bool checkLineResult(INT_TYPE literals, INT_TYPE clauses, RESULT_TYPE* result_matrix, INT_TYPE line)
+{
+    for(INT_TYPE i = 0; i < clauses; i++)
+    {
+        if(result_matrix[IDX2C(line, i, 1<<literals)] == 0)
+            return false;
+    }
+
+    return true;
+}
+
+bool checkResult(INT_TYPE literals, INT_TYPE clauses, RESULT_TYPE* result_matrix)
+{
+    //Controllo se la matrice di risultato è corretta
+    for(INT_TYPE i = 0; i < 1<<literals; i++)
+    {
+        if(checkLineResult(literals, clauses, result_matrix, i))
+            return true;
+    }
+
+    return false;
+}
+
+int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA_TYPE* problem_matrix, RESULT_TYPE* result_matrix)
 {
     cudaError_t cudaStat;
     cublasStatus_t stat;
     cublasHandle_t handle;
     DATA_TYPE *devPtr_problem, *devPtr_solution;
     RESULT_TYPE *devPtr_result;
+    //Definizione dei parametri per la moltiplicazione
+    const RESULT_TYPE alpha = (RESULT_TYPE)1;
+    const RESULT_TYPE beta = (RESULT_TYPE)0;
 
     //Controllo se le matrici sono state allocate
-    if (!problem_matrix || !solution_matrix) {
+    if (!problem_matrix || !solution_matrix || !result_matrix) {
         cerr << "Host memory allocation failed" << endl;
         return EXIT_FAILURE;
     }
 
     //--------------------------------------
-
-    //Allocazione memoria device
-    cudaStat = cudaMalloc ((void**)&devPtr_problem, literals*clauses*sizeof(*problem_matrix)<<1);
-    if (cudaStat != cudaSuccess) {
-        cerr << "Device memory allocation (problem) failed: " << cudaStat << endl;
-        return EXIT_FAILURE;
-    }
-
-    cudaStat = cudaMalloc ((void**)&devPtr_solution, 1<<(literals+1)*literals*sizeof(*solution_matrix));
-    if (cudaStat != cudaSuccess) {
-        cerr << "Device memory allocation (solution) failed: " << cudaStat << endl;
-        return EXIT_FAILURE;
-    }
-
-    cudaStat = cudaMalloc ((void**)&devPtr_result, 1<<literals*clauses*sizeof(*result_matrix));
-    if (cudaStat != cudaSuccess) {
-        cerr << "Device memory allocation (result) failed: " << cudaStat << endl;
-        return EXIT_FAILURE;
-    }
-
     //Creazione handle
+    //--------------------------------------
     stat = cublasCreate(&handle);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "CUBLAS initialization failed: " << stat << endl;
         return EXIT_FAILURE;
     }
 
-    //Copia dei dati sul device
-    stat = cublasSetMatrix (literals<<1, clauses, sizeof(*problem_matrix), problem_matrix, literals<<1, devPtr_problem, literals<<1);
-    if (stat != CUBLAS_STATUS_SUCCESS) {
-        cerr << "Data download failed (problem): " << stat << endl;
-        cudaFree (devPtr_problem);
-        cublasDestroy(handle);
+    //--------------------------------------
+    //Allocazione memoria device
+    //--------------------------------------
+    //Matrice soluzione (1<<literals x (literals<<1))
+    cudaStat = cudaMalloc ((void**)&devPtr_solution, (1<<literals)*(literals<<1)*sizeof(*solution_matrix));
+    if (cudaStat != cudaSuccess) {
+        cerr << "Device memory allocation (solution) failed: " << cudaStat << endl;
         return EXIT_FAILURE;
     }
 
+    //Matrice problema ((literals<<1) x clauses)
+    cudaStat = cudaMalloc ((void**)&devPtr_problem, (literals<<1)*clauses*sizeof(*problem_matrix));
+    if (cudaStat != cudaSuccess) {
+        cerr << "Device memory allocation (problem) failed: " << cudaStat << endl;
+        return EXIT_FAILURE;
+    }
+
+    //Matrice risultato (1<<literals x clauses)
+    cudaStat = cudaMalloc ((void**)&devPtr_result, (1<<literals)*clauses*sizeof(*result_matrix));
+    if (cudaStat != cudaSuccess) {
+        cerr << "Device memory allocation (result) failed: " << cudaStat << endl;
+        return EXIT_FAILURE;
+    }
+
+    //--------------------------------------
+    //Copia dei dati sul device
+    //--------------------------------------
+    //Matrice soluzione (1<<literals x (literals<<1))
     stat = cublasSetMatrix (1<<literals, literals<<1, sizeof(*solution_matrix), solution_matrix, 1<<literals, devPtr_solution, 1<<literals);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Data download failed (solution): " << stat << endl;
@@ -96,15 +125,48 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
         return EXIT_FAILURE;
     }
 
-    //Definizione dei parametri per la moltiplicazione
-    RESULT_TYPE alpha = 1;
-    RESULT_TYPE beta = 0;
+    //Matrice problema ((literals<<1) x clauses)
+    stat = cublasSetMatrix (literals<<1, clauses, sizeof(*problem_matrix), problem_matrix, literals<<1, devPtr_problem, literals<<1);
+    if (stat != CUBLAS_STATUS_SUCCESS) {
+        cerr << "Data download failed (problem): " << stat << endl;
+        cudaFree (devPtr_problem);
+        cublasDestroy(handle);
+        return EXIT_FAILURE;
+    }
 
-    //Moltiplicazione
-    stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, 1<<literals, clauses, literals<<1, &alpha, devPtr_problem, CUDA_R_8I, 1<<literals, devPtr_solution, CUDA_R_8I, literals<<1, &beta, result_matrix, CUDA_R_32I, 1<<literals, CUBLAS_COMPUTE_32I, CUBLAS_GEMM_DEFAULT);
+    //Matrice risultato (1<<literals x clauses)
+    //Non serve copiare la matrice risultato sul device
+    /*
+    stat=cublasSetMatrix (1<<literals, clauses, sizeof(*result_matrix), result_matrix, 1<<literals, devPtr_result, 1<<literals);
+    if (stat != CUBLAS_STATUS_SUCCESS) {
+        cerr << "Data download failed (result): " << stat << endl;
+        cudaFree (devPtr_result);
+        cublasDestroy(handle);
+        return EXIT_FAILURE;
+    }
+    */
+
+    //--------------------------------------
+    //Moltiplicazione con GemmEx
+    //--------------------------------------
+    stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, //cublasHandle_t handle, cublasOperation_t transa, cublasOperation_t transb,
+    1<<literals, clauses, literals<<1, //int m, int n, int k,
+    &alpha, devPtr_solution, CUDA_DATA_TYPE, 1<<literals, //const void *alpha, const void *A, cudaDataType Atype, int lda,
+    devPtr_problem, CUDA_DATA_TYPE, literals<<1, //const void *B, cudaDataType Btype, int ldb,
+    &beta, devPtr_result, CUDA_RESULT_TYPE, 1<<literals, //const void *beta, void *C, cudaDataType Ctype, int ldc,
+    CUDA_ALGO, CUBLAS_GEMM_DEFAULT); //cudaDataType computeType, cublasGemmAlgo_t algo
+
+    //Moltiplicazione con Sgemm
+    /*
+    stat = cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N, //cublasHandle_t handle, cublasOperation_t transa, cublasOperation_t transb,
+    1<<literals, clauses, literals<<1, //int m, int n, int k,
+    &alpha, devPtr_solution, 1<<literals,  //const float *alpha, const float *A, int lda,
+    devPtr_problem, literals<<1, //const float *B, int ldb,
+    &beta, devPtr_result, 1<<literals); //const float *beta, float *C, int ldc)
+    */
+
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Kernel execution failed: " << stat << endl;
-
         //Stampo il tipo di errore
         if(stat == CUBLAS_STATUS_NOT_INITIALIZED)
             cerr << "CUBLAS_STATUS_NOT_INITIALIZED" << endl;
@@ -125,10 +187,19 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
         return EXIT_FAILURE;
     }
 
+    //--------------------------------------
     //Copia dei risultati sul device
+    //--------------------------------------
+    //Matrice risultato (1<<literals x clauses)
     stat = cublasGetMatrix (1<<literals, clauses, sizeof(*result_matrix), devPtr_result, 1<<literals, result_matrix, 1<<literals);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Data upload failed (problem): " << stat << endl;
+        //Stampo il tipo di errore
+        if(stat == CUBLAS_STATUS_MAPPING_ERROR)
+            cerr << "CUBLAS_STATUS_MAPPING_ERROR" << endl;
+        else if(stat == CUBLAS_STATUS_INVALID_VALUE)
+            cerr << "CUBLAS_STATUS_INVALID_VALUE" << endl;
+
         cudaFree (devPtr_problem);
         cudaFree (devPtr_solution);
         cudaFree (devPtr_result);
@@ -136,6 +207,9 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
         return EXIT_FAILURE;
     }
 
+    //--------------------------------------
+    //Deallocazione memoria device
+    //--------------------------------------
     cudaFree(devPtr_problem);
     cudaFree(devPtr_solution);
     cudaFree(devPtr_result);
@@ -146,9 +220,12 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
 
 int main(int argc, char *argv[]) 
 {
-    cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl << endl;
-
-    string filename = "../input/dimacs/small.cnf";
+    //cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl;
+    std::cout << std::fixed << std::setprecision(0);
+    cout << endl;
+    string filename = "../input/dimacs/jnh1.cnf";
+    cout << "File: " << filename << endl;
+    //string filename = "../input/dimacs/small.cnf";
     if(argc > 1)
         filename = argv[1];
 
@@ -160,27 +237,35 @@ int main(int argc, char *argv[])
     //Alloco la matrice di soluzione
     solution_matrix = createSolutionMatrix(literals);
     //Alloco la matrice di risultato
-    result_matrix = (RESULT_TYPE*)calloc(1<<literals*clauses, sizeof(*result_matrix));
+    result_matrix = (RESULT_TYPE*)calloc((1<<literals)*clauses, sizeof(*result_matrix));
 
-    //Stampo la matrice in input
-    printInputMatrix(literals, clauses, problem_matrix);
-    //Stampo la matrice di soluzione
-    printSolutionMatrix(literals, solution_matrix);
+    #if DEBUG
+        //Stampo la matrice in input
+        printInputMatrix(literals, clauses, problem_matrix);
+        //Stampo la matrice di soluzione
+        printSolutionMatrix(literals, solution_matrix);
+    #endif
 
-    cout << endl << endl;
-    if(cublas(literals, clauses, problem_matrix, solution_matrix, result_matrix))
-        cout << "Test failed" << endl;
+    if(cublas(literals, clauses, solution_matrix, problem_matrix, result_matrix))
+    {
+        if(checkResult(literals, clauses, result_matrix))
+            cout << "SAT" << endl;
+        else
+            cout << "UNSAT" << endl;
+    }
     else
-        cout << "Test passed" << endl;
+        cout << "ERROR" << endl;
 
-    //Stampo la matrice di risultato
-    printResultMatrix(literals, clauses, result_matrix);
+    #if DEBUG
+        //Stampo la matrice di risultato
+        printResultMatrix(literals, clauses, result_matrix);
+    #endif
     
     free(problem_matrix);
     free(solution_matrix);
     free(result_matrix);
 
-    cout << endl << "-------------------------------------------------------------------" << endl << "END" << endl;
+    //cout << endl << "-------------------------------------------------------------------" << endl << "END" << endl;
 
     return 0;
 }
