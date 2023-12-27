@@ -1,0 +1,2 @@
+Data upload failed (problem): 11
+CUBLAS_STATUS_MAPPING_ERROR
