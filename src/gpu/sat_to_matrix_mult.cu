@@ -109,6 +109,8 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
     }
 
     //Matrice risultato (1<<literals x clauses)
+    //Non serve copiare la matrice risultato sul device
+    /*
     stat=cublasSetMatrix (1<<literals, clauses, sizeof(*result_matrix), result_matrix, 1<<literals, devPtr_result, 1<<literals);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Data download failed (result): " << stat << endl;
@@ -116,8 +118,10 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
         cublasDestroy(handle);
         return EXIT_FAILURE;
     }
-
+    */
+    //--------------------------------------
     //Moltiplicazione con GemmEx
+    //--------------------------------------
     stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, //cublasHandle_t handle, cublasOperation_t transa, cublasOperation_t transb,
     1<<literals, clauses, literals<<1, //int m, int n, int k,
     &alpha, devPtr_solution, CUDA_DATA_TYPE, 1<<literals, //const void *alpha, const void *A, cudaDataType Atype, int lda,
@@ -156,7 +160,9 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
         return EXIT_FAILURE;
     }
 
+    //--------------------------------------
     //Copia dei risultati sul device
+    //--------------------------------------
     //Matrice risultato (1<<literals x clauses)
     stat = cublasGetMatrix (1<<literals, clauses, sizeof(*result_matrix), devPtr_result, 1<<literals, result_matrix, 1<<literals);
     if (stat != CUBLAS_STATUS_SUCCESS) {
@@ -174,7 +180,9 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
         return EXIT_FAILURE;
     }
 
+    //--------------------------------------
     //Deallocazione memoria device
+    //--------------------------------------
     cudaFree(devPtr_problem);
     cudaFree(devPtr_solution);
     cudaFree(devPtr_result);

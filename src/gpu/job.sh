@@ -5,7 +5,7 @@
 #SBATCH --tasks=1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=1
-#SBATCH --time=00:00:01
+#SBATCH --time=00:00:30
 #SBATCH --job-name=GPU_SAT
 #SBATCH --output=out/out_gemmex_float.txt
 #SBATCH --error=out/err_gemmex_float.txt
