@@ -126,7 +126,7 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
     1<<literals, clauses, literals<<1, //int m, int n, int k,
     &alpha, devPtr_solution, CUDA_DATA_TYPE, 1<<literals, //const void *alpha, const void *A, cudaDataType Atype, int lda,
     devPtr_problem, CUDA_DATA_TYPE, literals<<1, //const void *B, cudaDataType Btype, int ldb,
-    &beta, result_matrix, CUDA_RESULT_TYPE, 1<<literals, //const void *beta, void *C, cudaDataType Ctype, int ldc,
+    &beta, devPtr_result, CUDA_RESULT_TYPE, 1<<literals, //const void *beta, void *C, cudaDataType Ctype, int ldc,
     CUDA_ALGO, CUBLAS_GEMM_DEFAULT); //cudaDataType computeType, cublasGemmAlgo_t algo
 
     //Moltiplicazione con Sgemm
