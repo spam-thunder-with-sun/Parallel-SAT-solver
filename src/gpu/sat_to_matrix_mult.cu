@@ -6,6 +6,7 @@ using namespace std;
 #include <string>
 #include <cmath>
 #include <bitset>
+#include <iomanip>
 #include <stdio.h>
 //Librerie per il calcolo parallelo
 #include <cuda_runtime.h>
@@ -194,8 +195,10 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
 int main(int argc, char *argv[]) 
 {
     cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl << endl;
+    std::cout << std::fixed << std::setprecision(1);
 
-    string filename = "../input/dimacs/small.cnf";
+    string filename = "../input/dimacs/jnh1.cnf";
+    //string filename = "../input/dimacs/small.cnf";
     if(argc > 1)
         filename = argv[1];
 
