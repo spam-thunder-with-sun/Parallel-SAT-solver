@@ -45,8 +45,8 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
     DATA_TYPE *devPtr_problem, *devPtr_solution;
     RESULT_TYPE *devPtr_result;
     //Definizione dei parametri per la moltiplicazione
-    const RESULT_TYPE alpha = 1.0f;
-    const RESULT_TYPE beta = 0.0f;
+    const RESULT_TYPE alpha = (RESULT_TYPE)1;
+    const RESULT_TYPE beta = (RESULT_TYPE)0;
 
     //Controllo se le matrici sono state allocate
     if (!problem_matrix || !solution_matrix || !result_matrix) {
@@ -118,14 +118,21 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* solution_matrix, DATA
     }
 
     //Moltiplicazione con GemmEx
-    //stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, 1<<literals, clauses, literals<<1, &alpha, devPtr_problem, CUDA_DATA_TYPE, 1<<literals, devPtr_solution, CUDA_DATA_TYPE, literals<<1, &beta, result_matrix, CUDA_RESULT_TYPE, 1<<literals, CUDA_ALGO, CUBLAS_GEMM_DEFAULT);
-    
+    stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, //cublasHandle_t handle, cublasOperation_t transa, cublasOperation_t transb,
+    1<<literals, clauses, literals<<1, //int m, int n, int k,
+    &alpha, devPtr_solution, CUDA_DATA_TYPE, 1<<literals, //const void *alpha, const void *A, cudaDataType Atype, int lda,
+    devPtr_problem, CUDA_DATA_TYPE, literals<<1, //const void *B, cudaDataType Btype, int ldb,
+    &beta, result_matrix, CUDA_RESULT_TYPE, 1<<literals, //const void *beta, void *C, cudaDataType Ctype, int ldc,
+    CUDA_ALGO, CUBLAS_GEMM_DEFAULT); //cudaDataType computeType, cublasGemmAlgo_t algo
+
     //Moltiplicazione con Sgemm
+    /*
     stat = cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N, //cublasHandle_t handle, cublasOperation_t transa, cublasOperation_t transb,
     1<<literals, clauses, literals<<1, //int m, int n, int k,
     &alpha, devPtr_solution, 1<<literals,  //const float *alpha, const float *A, int lda,
     devPtr_problem, literals<<1, //const float *B, int ldb,
     &beta, devPtr_result, 1<<literals); //const float *beta, float *C, int ldc)
+    */
 
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Kernel execution failed: " << stat << endl;
