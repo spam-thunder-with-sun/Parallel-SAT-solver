@@ -105,11 +105,10 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
     }
 
     //Definizione dei parametri per la moltiplicazione
-    RESULT_TYPE alpha = 1;
-    RESULT_TYPE beta = 0;
+    const RESULT_TYPE alpha = 1.0f;
+    const RESULT_TYPE beta = 0.0f;
 
     //Moltiplicazione
-    /*
     stat = cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, 1<<literals, clauses, literals<<1, &alpha, devPtr_problem, CUDA_DATA_TYPE, 1<<literals, devPtr_solution, CUDA_DATA_TYPE, literals<<1, &beta, result_matrix, CUDA_RESULT_TYPE, 1<<literals, CUDA_ALGO, CUBLAS_GEMM_DEFAULT);
     if (stat != CUBLAS_STATUS_SUCCESS) {
         cerr << "Kernel execution failed: " << stat << endl;
@@ -133,7 +132,6 @@ int cublas(INT_TYPE literals, INT_TYPE clauses, DATA_TYPE* problem_matrix, DATA_
         cublasDestroy(handle);
         return EXIT_FAILURE;
     }
-    */
 
     //Copia dei risultati sul device
     stat = cublasGetMatrix (1<<literals, clauses, sizeof(*result_matrix), devPtr_result, 1<<literals, result_matrix, 1<<literals);

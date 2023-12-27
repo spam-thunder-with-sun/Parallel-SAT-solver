@@ -11,5 +11,4 @@
     #define CUDA_ALGO CUBLAS_COMPUTE_32F 
     
     #define IDX2C(i,j,ld) (((j)*(ld))+(i))
-
 #endif
