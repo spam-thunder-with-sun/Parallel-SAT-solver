@@ -1,7 +1,7 @@
 #ifndef CONSTANT
     #define CONSTANT
 
-    #define INT_TYPE int32_t
+    #define INT_TYPE int
     #define DATA_TYPE float
     #define RESULT_TYPE float
     #define PRINT_DATA float
