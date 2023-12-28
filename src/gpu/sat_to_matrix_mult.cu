@@ -17,12 +17,12 @@ using namespace std;
 #include "print_data.h"
 #include "constant.h"
 
-#define DEBUG false
+#define DEBUG true
 
 DATA_TYPE* createSolutionMatrix(INT_TYPE literals)
 {
     //Alloco la matrice di soluzione
-    DATA_TYPE *solution_matrix = (DATA_TYPE*)calloc(1<<(literals+1)*literals, sizeof(*solution_matrix));
+    DATA_TYPE *solution_matrix = (DATA_TYPE*)calloc((1<<literals)*(literals<<1), sizeof(*solution_matrix));
     if (!solution_matrix) {
         cerr << "Host memory allocation failed" << endl;
         return NULL;
@@ -33,8 +33,10 @@ DATA_TYPE* createSolutionMatrix(INT_TYPE literals)
     {
         for(INT_TYPE j = 0; j < literals; j++)
         {
-            solution_matrix[IDX2C(i, literals-1-j, 1<<literals)] = i>>j & 1;
-            solution_matrix[IDX2C(i, (literals<<1)-1-j, 1<<literals)] = !(i>>j & 1);
+            //solution_matrix[IDX2C(i, literals-1-j, 1<<literals)] = (i>>j & 1);
+            solution_matrix[IDX2C(i, literals-1-j, 1<<literals)] = 1;
+            solution_matrix[IDX2C(i, (literals<<1)-1-j, 1<<literals)] = 1;
+            //solution_matrix[IDX2C(i, (literals<<1)-1-j, 1<<literals)] = (!(i>>j & 1));
         }
     }
 
@@ -224,8 +226,7 @@ int main(int argc, char *argv[])
     //cout << endl << "START" << endl << "-------------------------------------------------------------------" << endl;
     std::cout << std::fixed << std::setprecision(0);
     cout << endl;
-    string filename = "../input/dimacs/jnh1.cnf";
-    //string filename = "../input/dimacs/small.cnf";
+    string filename = "../input/dimacs/small.cnf";
     if(argc > 1)
         filename = argv[1];
 
@@ -266,8 +267,6 @@ int main(int argc, char *argv[])
     //Calcolo il tempo di esecuzione
     gettimeofday(&end, (struct timezone *)0);
     float elapsed = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000000.0;
-    cout << std::setprecision(6);
-    cout << "Time: " << elapsed << " s" << endl;
 
     #if DEBUG
         //Stampo la matrice di risultato
@@ -277,6 +276,9 @@ int main(int argc, char *argv[])
     free(problem_matrix);
     free(solution_matrix);
     free(result_matrix);
+
+    cout << std::setprecision(6);
+    cout << "Time: " << elapsed << " s" << endl;
 
     //cout << endl << "-------------------------------------------------------------------" << endl << "END" << endl;
 

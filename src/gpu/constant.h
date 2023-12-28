@@ -30,7 +30,7 @@
         //INT8 INPUT and INT32 COMPUTATION and INT32 results
         #define DATA_TYPE int8_t
         #define RESULT_TYPE int32_t
-        #define PRINT_DATA int
+        #define PRINT_DATA uint32_t
         #define CUDA_DATA_TYPE CUDA_R_8I
         #define CUDA_RESULT_TYPE CUDA_R_32I
         #define CUDA_ALGO CUBLAS_COMPUTE_32I
