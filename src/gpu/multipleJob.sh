@@ -6,9 +6,9 @@
 #SBATCH --gpus-per-node=a30.24:1
 #SBATCH --cpus-per-task=1
 #SBATCH --time=00:05:00
-#SBATCH --job-name=GPU_SAT_MULTIPLE
-#SBATCH --output=out/out_multiple.txt
-#SBATCH --error=out/err_multiple.txt
+#SBATCH --job-name=GPU_SAT_MULTIPLE_
+#SBATCH --output=out/out_a100-4.txt
+#SBATCH --error=out/err_a100-4.txt
 
 filenames1=("2bitadd_10.cnf" "4blocksb.cnf" "2bitadd_11.cnf" "4blocks.cnf" "2bitadd_12.cnf" "e0ddr2-10-by-5-1.cnf" "2bitcomp_5.cnf" "e0ddr2-10-by-5-4.cnf" "2bitmax_6.cnf" "enddr2-10-by-5-1.cnf" "3bitadd_31.cnf" "enddr2-10-by-5-8.cnf" "3bitadd_32.cnf" "ewddr2-10-by-5-1.cnf" "3blocks.cnf" "ewddr2-10-by-5-8.cnf")
 filenames2=("hole6.cnf" "jnh17.cnf" "jnh205.cnf" "jnh212.cnf" "jnh220.cnf" "jnh307.cnf" "jnh7.cnf" "jnh10.cnf" "jnh18.cnf" "jnh206.cnf" "jnh213.cnf" "jnh2.cnf" "jnh308.cnf" "jnh8.cnf" "jnh11.cnf" "jnh19.cnf" "jnh207.cnf" "jnh214.cnf" "jnh301.cnf" "jnh309.cnf" "jnh9.cnf" "jnh12.cnf" "jnh1.cnf" "jnh208.cnf" "jnh215.cnf" "jnh302.cnf" "jnh310.cnf")
