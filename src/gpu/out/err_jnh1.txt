@@ -1,0 +1,2 @@
+Host memory allocation failed
+srun: error: deeplearning03: task 0: Segmentation fault (core dumped)
